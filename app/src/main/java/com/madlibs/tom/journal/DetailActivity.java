@@ -13,24 +13,29 @@ public class DetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+
+        // get clicked entry from intent
         Intent intent = getIntent();
         JournalEntry entry = (JournalEntry) intent.getSerializableExtra("entry");
 
+        // display corresponding titel
         String title = entry.getTitle();
         TextView titleView = findViewById(R.id.titleField);
         titleView.setText(title);
 
+        // display corresponding content
         String content = entry.getContent();
         TextView contentView = findViewById(R.id.contentField);
         contentView.setText(content);
 
+        // display corresponding timestamp
         String time = entry.getTimeStamp();
         TextView timeView = findViewById(R.id.timeStampField);
         timeView.setText(time);
 
+        // display corresponding emote for mood
         int mood = entry.getMood();
         ImageView moodEmote = findViewById(R.id.moodImage);
-
         int id = 0;
         switch (mood) {
             case 0:
@@ -47,10 +52,5 @@ public class DetailActivity extends AppCompatActivity {
                 break;
         }
         moodEmote.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), id));
-//        TextView m = findViewById(R.id.moodField);
-//        m.setText(mood);
-
-
-
     }
 }

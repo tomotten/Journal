@@ -19,11 +19,13 @@ public class EntryAdapter extends ResourceCursorAdapter {
     }
 
     @Override
+    // show entry in listView as specified in entry_row.xml
     public void bindView(View view, Context context, Cursor cursor) {
         TextView title = view.findViewById(R.id.titleView);
         TextView timeStamp = view.findViewById(R.id.timeStampView);
         ImageView mood = view.findViewById(R.id.moodView);
 
+        // set Views to display info passed by cursor object
         title.setText(cursor.getString(cursor.getColumnIndex("title")));
         timeStamp.setText(cursor.getString(cursor.getColumnIndex("timeStamp")));
         int m = cursor.getInt(cursor.getColumnIndex("mood"));

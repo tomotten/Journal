@@ -11,6 +11,7 @@ public class JournalEntry implements Serializable {
     private int mood;
     private String timeStamp;
 
+    // constructor to build entry from cursor object
     public JournalEntry(Cursor c) {
         this.title = c.getString(c.getColumnIndex("title"));
         this.timeStamp = c.getString(c.getColumnIndex("timeStamp"));
@@ -19,6 +20,7 @@ public class JournalEntry implements Serializable {
         this.id = c.getInt(c.getColumnIndex("_id"));
     }
 
+    // constructor to build entry
     public JournalEntry(String title, String content, int mood, String timeStamp){
         this.title = title;
         this.content = content;

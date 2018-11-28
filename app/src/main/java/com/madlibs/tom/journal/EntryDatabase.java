@@ -38,6 +38,7 @@ public class EntryDatabase extends SQLiteOpenHelper {
     }
 
     @Override
+    // if updated delete database and create new
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + "myJournal");
         onCreate(db);
@@ -48,6 +49,7 @@ public class EntryDatabase extends SQLiteOpenHelper {
         return instance.getWritableDatabase().rawQuery("SELECT * FROM myJournal",null);
     }
 
+    // add new entry to database
     public void insert(JournalEntry entry){
         String title = entry.getTitle();
         String content = entry.getContent();
@@ -57,6 +59,7 @@ public class EntryDatabase extends SQLiteOpenHelper {
         instance.getWritableDatabase().execSQL(query);
     }
 
+    // delete entry from database with given id
     public void delete(long id) {
         String query = "DELETE from myJournal WHERE _id==" + id;
         instance.getWritableDatabase().execSQL(query);
