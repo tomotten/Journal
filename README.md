@@ -2,7 +2,8 @@
 # You can than read them back later. You also have to specify a mood for each entry. 
 # So with this app you can keep track of all your stories/ memories/ ect. 
 
-![screenshot](doc/main.png){width=50%}
+<img src="doc/main.png" width="50" height="100" >
+
 ![screenshot](doc/add.png)
 ![screenshot](doc/entry_safe1.png)
 ![screenshot](doc/entry_safe2.png)
